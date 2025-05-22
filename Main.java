@@ -1,25 +1,3 @@
-public class Main {
-    public static void main(String[] args) {
-        // Array of Employee (Polymorphism)
-        Employee[] employees = {
-            new SoftwareEngineer(),
-            new DataScientist(),
-            new Intern()
-        };
-
-        System.out.println("=== Gaji Bulanan Tanpa Bonus ===");
-        for (Employee emp : employees) {
-            System.out.println(emp.getClass().getSimpleName() + ": " + emp.calculateSalary());
-        }
-
-        System.out.println("\n=== Gaji Bulanan Dengan Bonus ===");
-        // Memanggil method overload langsung dari objek (bukan polymorphic)
-        for (Employee emp : employees) {
-            System.out.println(emp.getClass().getSimpleName() + ": " + emp.calculateSalary(true));
-        }
-    }
-}
-
 // Superclass
 class Employee {
     public double calculateSalary() {
@@ -82,6 +60,28 @@ class Intern extends Employee {
             return calculateSalary() + 500000;
         } else {
             return calculateSalary();
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Array of Employee (Polymorphism)
+        Employee[] employees = {
+            new SoftwareEngineer(),
+            new DataScientist(),
+            new Intern()
+        };
+
+        System.out.println("=== Gaji Bulanan Tanpa Bonus ===");
+        for (Employee emp : employees) {
+            System.out.println(emp.getClass().getSimpleName() + ": " + emp.calculateSalary());
+        }
+
+        System.out.println("\n=== Gaji Bulanan Dengan Bonus ===");
+        // Memanggil method overload langsung dari objek (bukan polymorphic)
+        for (Employee emp : employees) {
+            System.out.println(emp.getClass().getSimpleName() + ": " + emp.calculateSalary(true));
         }
     }
 }
